@@ -3,7 +3,7 @@ GO
 /****** Object:  StoredProcedure [dbo].[usp_InsertLibraryDetail]    Script Date: 11/12/2017 5:18:04 PM ******/
 
 
-CREATE PROCEDURE [dbo].[usp_InsertLibraryDetail]
+CREATE PROCEDURE [usp_InsertLibraryDetail]
 AS
 
 BEGIN
@@ -23,7 +23,7 @@ VALUES
 (9,'In Every Moment We Are Still Alive',' Melville'),
 (10,'The Plea','Flatiron'),
 (11,'Song of a Captive Bird','Ballantine'),
-(12,'Tarnished City','Del Rey'),
+(12,'The Lost Tribe','Del Rey'),
 (13,'The Afterlives','Riverhead'),
 (14,'The Beauty','Titan'),
 (15,'The Black Painting','Hanover Square'),
@@ -38,7 +38,7 @@ VALUES
 (24,'Direct Fire','Kensington'),
 (25,'Dont Look for Me','Pegasus'),
 (26,'The English Wife','St Martins'),
-(27,'The Epic City: The World on the Streets of Calcutta','Bloomsbury'),
+(27,'The Epic City: Calcutta','Bloomsbury'),
 (28,'Everything Here Is Beautiful','Viking/Pamela Dorman'),
 (29,'Fire Sermon','Grove'),
 (30,'The Girls in the Picture','Delacorte'),
@@ -58,7 +58,7 @@ VALUES
 (44,'The King of Bones and Ashes','Amazon-47North'),
 (45,'The Last Suppers','Kensington-John Scognamiglio'),
 (46,'Light It Up','Putnam'),
-(47,'Lullaby Road','Crown'),
+(47,'Carrie','Crown'),
 (48,'A Map of the Dark','Little  Brown'),
 (49,'Mood Indigo','Poisoned Pen'),
 (50,'The Music Shop','Random');
@@ -111,7 +111,7 @@ VALUES
 (44,' J D Horn'),
 (45,' Mandy Mikulencak'),
 (46,' Nick Petrie'),
-(47,' James Anderson'),
+(47,' Stephen KIng'),
 (48,' Karen Ellis'),
 (49,' Ed Ifkovic'),
 (50,' Rachel Joyce');
@@ -160,7 +160,7 @@ VALUES
 ('Twelve','13460 somewhere lane  myCity ST 98562','505-253-6591'),
 ('Viking-Pamela Dorman','13471 somewhere lane  myCity ST 98562','505-253-6602');
 
-SET IDENTITY_INSERT LIBRARYDATA.LIBRARY_BRANCH ON
+
 
 INSERT INTO LIBRARYDATA.LIBRARY_BRANCH (BranchID,BranchName,Address)
 VALUES 
@@ -170,7 +170,7 @@ VALUES
 		(103,'Mayberry', '35821 Library Road Mayberry ST 42736');
 		
 
-SET IDENTITY_INSERT LIBRARYDATA.BORROWER ON
+
 
 INSERT INTO LIBRARYDATA.BORROWER(CardNo,Name,Address,Phone)
 VALUES 
@@ -198,13 +198,13 @@ VALUES
 (37,100,2500,'2017-12-01'),
 (39,102,2502,'2017-12-01'),
 (9,103,2503,'2017-12-01'),
-(41,100,2504,'2017-12-01'),
+(41,103,2504,'2017-12-01'),
 (42,101,2505,'2017-12-01'),
 (43,102,2506,'2017-12-01'),
 (46,103,2507,'2017-12-04'),
-(47,102,2508,'2017-12-04'),
+(47,101,2508,'2017-12-04'),
 (49,100,2500,'2017-12-04'),
-(12,102,2502,'2017-12-04'),
+(12,100,2502,'2017-12-04'),
 (13,103,2503,'2017-12-04'),
 (14,100,2504,'2017-12-04'),
 (15,101,2505,'2017-12-04'),
@@ -235,7 +235,7 @@ VALUES
 (38,101,2505,'2017-12-01'),
 (11,101,2506,'2017-12-04'),
 (26,101,2502,'2017-12-18'),
-(50,101,2501,'2017-12-20'),
+(50,101,2504,'2017-12-20'),
 (23,101,2503,'2017-12-20');
 
 
@@ -248,7 +248,7 @@ VALUES
 (16,100,8),
 (19,100,6),
 (20,100,2),
-(21,100,4),
+(21,103,4),
 (22,100,3),
 (23,100,7),
 (24,100,5),
@@ -271,10 +271,10 @@ VALUES
 (42,102,7),
 (43,102,5),
 (46,102,2),
-(47,102,5),
+(47,101,5),
 (49,102,8),
 (11,103,6),
-(12,103,2),
+(12,101,2),
 (13,103,4),
 (14,103,3),
 (15,103,7),
@@ -282,7 +282,8 @@ VALUES
 (18,103,2),
 (2,103,5),
 (3,103,8),
-(26,103,6)
+(26,103,6),
+(12,100,4)
 ;
 
 

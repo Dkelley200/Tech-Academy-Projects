@@ -29,21 +29,20 @@ BEGIN
 
 --1. 
 
-Select count(bookid)
-From bookdata.book
-where title = 'The Lost Tribe';
+Select C.No_Of_Copies, L.branchname, b.title
+From bookdata.book B
+inner join Librarydata.book_copies C
+ on b.bookid = C.bookid
+ inner join Librarydata.Library_Branch L
+ on L.branchid = C.branchid
+where B.title = 'The Lost Tribe' and L.branchname = 'Sharpstown');
 
 --2
 
-Select L.branchid, L.branchname, count(b.bookid) Qty
-From Librarydata.Library_Branch L
-	inner join Librarydata.book_copies C
-		on c.branchid = L.branchid
-	full outer join bookdata.book B
-		on  B.title = 'The Lost Tribe' and B.bookid = C.bookid
-where L.branchid is not NULL
-group by L.branchname,L.branchid
-having count(L.branchid) >= 0
+Select C.branchid,  C.No_Of_Copies
+From  Librarydata.book_copies C
+	inner join bookdata.book B
+		on   B.bookid = C.bookid and B.title = 'The Lost Tribe' 
 ;
 
 
@@ -89,15 +88,17 @@ having (count(g.bookid) > 5)
 
 
 --7.
-select B.title, count(A.bookid) QtyOwned
-from bookdata.book_authors A
-	inner join bookdata.book  B
-		on B.bookid = A.bookid
-	inner join Librarydata.book_copies C
-		on  C.Bookid  = B.Bookid
-	inner join Librarydata.Library_Branch L
+select B.title, C.No_Of_Copies, a.authorname, L.branchname
+from Librarydata.book_copies C
+inner join bookdata.book  B
+on  C.Bookid  = B.Bookid
+inner join Librarydata.Library_Branch L
 		on  C.branchid = L.branchid
- where A.authorname = 'Stephen King' and L.branchname = 'Central'
- Group by A.bookid, B.title;
+inner join  bookdata.book_authors A
+	     on B.bookid = A.bookid
+ where A.authorname = ' Stephen King' and L.branchname = 'Central'
+ Group by A.bookid, B.title,C.No_Of_Copies, a.authorname, L.branchname
+ ;
+
 
 END
