@@ -1,0 +1,53 @@
+﻿body {
+    width: 900px;
+    height: 1200px;
+} 
+
+
+body #upper {
+    background-color: #61BFE8;
+    height: 300px;
+}
+
+body #lower {
+    background-color: #138A8D;
+    height: 520px;
+    margin: 0px 0px 20px;
+}
+
+#upper > p {
+    margin: 4% auto;
+    text-align: center;
+    color: darkblue;
+    font-weight: bold;
+    font-family: "Georgia",Times, serif;
+    font-size: 45px;
+}
+
+
+
+.img-frog:hover {
+    content: url(img/frogSnap.png);
+}
+
+
+
+.container .img-frog {
+    background-image: url("../img/frog.jpg");
+    color: #fff;
+    float: left;
+    width: 300px;
+    height: 270px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 25%;
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
+}
+
+
+    .container .img-frog:hover {
+        background-image: url("../img/frogSnap.png");
+        width: 500px;
+        height: 485px;
+    }
